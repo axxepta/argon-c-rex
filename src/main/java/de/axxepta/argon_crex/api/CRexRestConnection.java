@@ -64,7 +64,7 @@ public class CRexRestConnection extends RestConnection implements Connection {
         } else {
             convertedResource = resource;
         }
-        request(getQuery("put-" + source), PATH, path, RESOURCE, prepare(convertedResource), BINARY, Boolean.toString(binary),
+        request(getQuery("put-" + source), PATH, path, RESOURCE, prepare(convertedResource, binary), BINARY, Boolean.toString(binary),
                 ENCODING, encoding, OWNER, owner, VERSIONIZE, versionize, VERSION_UP, versionUp);
     }
 
