@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- The plugin.dtd file is located in the OXYGEN_INSTALL_DIR/plugins directory -->
-<plugin name="Argon with C-Rex support" description="Plugin for accessing BaseX DB and opening MS Office documents as DITA" version="0.0.4"
+<plugin name="Argon with C-Rex support" description="Plugin for accessing BaseX DB and opening MS Office documents as DITA" version="0.0.5"
         vendor="axxepta solutions GmbH/Practice Innovation" class="de.axxepta.oxygen.workspace.WorkspaceAccessPlugin"
         classLoaderType="preferReferencedResources">
     <runtime>
-        <library name="libs/argon-c-rex-0.0.4.jar" />
+        <library name="libs/argon-c-rex-0.0.6.jar" />
         <library name="libs/lib/aspectjrt.jar"/>
         <library name="libs/lib/jersey-core-1.9.jar" />
         <library name="libs/lib/jide-oss-3.6.7.jar" />
@@ -23,6 +23,7 @@
 
 
     <extension type="OptionPage" class="de.axxepta.oxygen.workspace.ArgonOptionPage"/>
+    <extension type="OptionPage" class="de.axxepta.argon_crex.workspace.CRexConnectionOptionPage"/>
     <!-- The view for BaseX Database Tree-->
     <view id="ArgonWorkspaceAccessID" initialSide="WEST" initialRow="0" />
     <!-- The view which will present messages from the plugin.-->

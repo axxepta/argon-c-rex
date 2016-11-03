@@ -1,7 +1,8 @@
-set versionnumber=4
+set versionnumber=6
 copy extension.xml roll-out\
 copy plugin.xml roll-out\argon-c-rex\
 copy build\libs\lib\*.* roll-out\argon-c-rex\libs\lib\
+del roll-out\argon-c-rex\libs\argon-c-rex-0.0.*.jar
 copy build\libs\argon-c-rex-0.0.%versionnumber%.jar roll-out\argon-c-rex\libs\
 xcopy /S/Y build\resources\main\api roll-out\argon-c-rex\resources\api\
 xcopy /S/Y build\resources\main\images roll-out\argon-c-rex\resources\images\

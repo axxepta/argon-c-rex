@@ -1,4 +1,5 @@
 src/main/java/de/axxepta/argon_crex/api/CRexRestConnection.java
+src/main/java/de/axxepta/argon_crex/workspace/CRexConnectionOptionPage.java
 src/main/java/de/axxepta/argon_crex/core/ClassExchange.aj
 src/main/java/de/axxepta/argon_crex/core/MethodExchange.aj
 src/main/java/de/axxepta/oxygen/core/ClassFactory.java

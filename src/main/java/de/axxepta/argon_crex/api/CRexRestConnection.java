@@ -1,6 +1,7 @@
 package de.axxepta.argon_crex.api;
 
 import de.axxepta.oxygen.api.*;
+import de.axxepta.argon_crex.workspace.CRexConnectionOptionPage;
 import org.basex.io.IOStream;
 import org.basex.io.IOUrl;
 import org.basex.util.http.HttpText;
@@ -19,13 +20,15 @@ import java.util.zip.ZipFile;
 
 public class CRexRestConnection extends RestConnection implements Connection {
 
-    private final IOUrl cRexUrl = new IOUrl("https://c-rex.net/api/Token");
-    private final URL getDOCXUrl = new URL("https://www.c-rex.net/api/XBot/Convert/Demo/docx2DITATopicOxygen");
-    private final URL getXLSXUrl = new URL("https://www.c-rex.net/api/XBot/Convert/Demo/xlsx2DITATopicOxygen");
-    private final URL getDITAfromDOCXUrl = new URL("https://www.c-rex.net/api/XBot/Convert/Demo/DITATopicOxygen2docx");
-    private final URL getDITAfromXLSXUrl = new URL("https://www.c-rex.net/api/XBot/Convert/Demo/DITATopicOxygen2xlsx");
-    private final String bearerUser = "demo@c-rex.net";
-    private final String bearerPass = "demo$crex";
+	private String server = CRexConnectionOptionPage.getOption(CRexConnectionOptionPage.KEY_CREX_SERVER, false);
+
+    private IOUrl cRexUrl = new IOUrl(server + "/api/Token");
+    private URL getDOCXUrl = new URL(server + "/api/XBot/Convert/Demo/docx2DITATopicOxygen");
+    private URL getXLSXUrl = new URL(server + "/api/XBot/Convert/Demo/xlsx2DITATopicOxygen");
+    private URL getDITAfromDOCXUrl = new URL(server + "/api/XBot/Convert/Demo/DITATopicOxygen2docx");
+    private URL getDITAfromXLSXUrl = new URL(server + "/api/XBot/Convert/Demo/DITATopicOxygen2xlsx");
+    private String bearerUser = CRexConnectionOptionPage.getOption(CRexConnectionOptionPage.KEY_CREX_USER, false);
+    private String bearerPass = CRexConnectionOptionPage.getOption(CRexConnectionOptionPage.KEY_CREX_PWD, false);
     private static String bearerToken = "";
     private static final String LINE_FEED = "\r\n";
 
