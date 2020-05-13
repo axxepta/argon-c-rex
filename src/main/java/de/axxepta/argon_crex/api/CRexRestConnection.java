@@ -38,8 +38,13 @@ public class CRexRestConnection extends RestConnection implements Connection {
     }
 
     @Override
-    public byte[] get(final BaseXSource source, final String path, boolean export) throws IOException {
-        byte[] doc = request(getQuery("get-" + source), PATH, path);
+    public byte[] get(final BaseXSource source, final String inPath, boolean export) throws IOException {
+        String path;
+		if (inPath.startsWith("/"))
+			path = inPath.substring(1);
+		else
+			path = inPath;
+		byte[] doc = request(getQuery("get-" + source), PATH, path);
         try {
             if (path.toUpperCase().endsWith("DOCX") && !export) {
                 doc = getConvertedData(doc, getDOCXUrl, path);
@@ -55,9 +60,14 @@ public class CRexRestConnection extends RestConnection implements Connection {
     }
 
     @Override
-    public void put(final BaseXSource source, final String path, final byte[] resource, boolean binary, String encoding,
+    public void put(final BaseXSource source, final String inPath, final byte[] resource, boolean binary, String encoding,
                     String owner, String versionize, String versionUp)
             throws IOException {
+		String path;
+		if (inPath.startsWith("/"))
+			path = inPath.substring(1);
+		else
+			path = inPath;
         byte[] convertedResource;
         System.out.println("Encoding: " + encoding);
         if (path.toUpperCase().endsWith("DOCX") && !encoding.equals("")) {
